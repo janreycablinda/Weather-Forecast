@@ -42,6 +42,8 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
+    protected $with = ['social_accounts'];
+
     public function social_accounts(){
         return $this->hasMany(\App\Models\SocialAccount::class, 'user_id', 'id');
     }

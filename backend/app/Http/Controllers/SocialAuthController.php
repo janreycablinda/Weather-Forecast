@@ -21,7 +21,6 @@ class SocialAuthController extends Controller
 
     public function handleProviderCallback($provider) {
         $user = Socialite::driver($provider)->stateless()->user();
-
         if(!$user->token) {
             dd('failed');
         }
@@ -37,6 +36,7 @@ class SocialAuthController extends Controller
             $newsocialAccount = SocialAccount::create([
                 'provider' => $provider,
                 'provider_user_id' => $user->id,
+                'username' => $user->user['login'],
                 'user_id' => $newUser->id
             ]);
     
@@ -54,6 +54,7 @@ class SocialAuthController extends Controller
                 $newSocialAccount = SocialAccount::create([
                     'provider' => $provider,
                     'provider_user_id' => $user->id,
+                    'username' => $user->user['login'],
                     'user_id' => $appUser->id
                 ]);
             }
