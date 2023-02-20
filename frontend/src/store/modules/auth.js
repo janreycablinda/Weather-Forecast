@@ -44,6 +44,7 @@ export default {
       try {
         let response = await axios.get("me");
         commit("SET_USER", response.data);
+        commit('SET_AUTHENTICATED', true);
       } catch (e) {
         commit("SET_TOKEN", null);
         commit("SET_USER", null);
@@ -68,7 +69,8 @@ export default {
       })
     },
     
-    async loginWithGithubCallback({commit}, payload, code) {
+    async loginWithGithubCallback({commit}, code) {
+      console.log(code);
       return new Promise((resolve, reject) => {
         axios.get('auth/github/callback', {
             params: code

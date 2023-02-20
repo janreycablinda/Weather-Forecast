@@ -17,12 +17,12 @@ export default {
   },
   actions: {
     async filterCity({commit}, city) {
-        try {
-            const response = await axios.get(`http://api.openweathermap.org/geo/1.0/direct?q=${city}&limit=5&appid=6a08b07ee5a61e1a9210cf18eb156e8a`);
-            commit('SET_CITY', response.data);
-        } catch (e) {
-          console.log(e); 
-        }
+      try {
+        const response = await axios.get(`http://api.openweathermap.org/geo/1.0/direct?q=${city}&limit=5&appid=6a08b07ee5a61e1a9210cf18eb156e8a`);
+        commit('SET_CITY', response.data);
+      } catch (e) {
+        console.log(e); 
+      }
     },
   }
 };
