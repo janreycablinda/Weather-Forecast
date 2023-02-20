@@ -1,14 +1,26 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
-import HomeView from '../views/HomeView.vue'
+import Login from '../views/Authentication/LoginView.vue'
+import loginWithGithub from '../views/Authentication/LoginWithGithub.vue'
+import Home from '../views/Pages/Home/Home.vue'
 
 Vue.use(VueRouter)
 
 const routes = [
   {
     path: '/',
-    name: 'home',
-    component: HomeView
+    name: 'Login',
+    component: Login
+  },
+  {
+    path: '/auth/github/callback',
+    name: 'loginWithGithub',
+    component: loginWithGithub
+  },
+  {
+    path: '/home',
+    name: 'Home',
+    component: Home
   },
   {
     path: '/about',
