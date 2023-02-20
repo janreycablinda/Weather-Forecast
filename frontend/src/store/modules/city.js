@@ -12,13 +12,13 @@ export default {
   },
   mutations: {
     SET_CITY(state, cities) {
-        state.cities = cities;
+      state.cities = cities;
     }
   },
   actions: {
     async filterCity({commit}, city) {
       try {
-        const response = await axios.get(`http://api.openweathermap.org/geo/1.0/direct?q=${city}&limit=5&appid=6a08b07ee5a61e1a9210cf18eb156e8a`);
+        const response = await axios.get('http://api.openweathermap.org/geo/1.0/direct?q=London&limit=5&appid=6a08b07ee5a61e1a9210cf18eb156e8a');
         commit('SET_CITY', response.data);
       } catch (e) {
         console.log(e); 
