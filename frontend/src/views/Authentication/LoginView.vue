@@ -1,7 +1,7 @@
 <template>
   <div class="home">
       <p>Welcome to the weather forecast web application. Please login with your Github user to use the application and view the weather in your city.</p>
-      <button @click="loginGithub">Login</button>
+      <button class="bg-indigo-900 p-2 rounded-lg text-white mt-2" @click="loginGithub">Login</button>
   </div>
 </template>
   
